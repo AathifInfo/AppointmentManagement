@@ -4,6 +4,7 @@ package com.spring.appointmentManagement.controller;
 import com.spring.appointmentManagement.dto.AppointmentDTO;
 import com.spring.appointmentManagement.entity.Appointment;
 import com.spring.appointmentManagement.service.AppointmentService;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +23,7 @@ public class AppointmentController {
     private AppointmentService appointmentService;
 
     @PostMapping(path = "/create")  //end point
-    public ResponseEntity<AppointmentDTO> createAppointment(@RequestBody AppointmentDTO appointmentDTO){
+    public ResponseEntity<AppointmentDTO> createAppointment(@Valid @RequestBody AppointmentDTO appointmentDTO){
         return appointmentService.addAppointment(appointmentDTO);
 
     }
@@ -40,7 +41,7 @@ public class AppointmentController {
     }
 
     @PutMapping(path = "/update/{id}")
-    public ResponseEntity<Appointment> updateAppointment(@PathVariable("id") long id, @RequestBody AppointmentDTO appointmentDTO){
+    public ResponseEntity<Appointment> updateAppointment(@Valid @PathVariable("id") long id, @RequestBody AppointmentDTO appointmentDTO){
         return appointmentService.updateAppointment(id, appointmentDTO);
     }
 
