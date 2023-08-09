@@ -1,11 +1,16 @@
 package com.spring.appointmentManagement.repository;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.spring.appointmentManagement.entity.Appointment;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
 
-public interface AppointmentRepository {
+@EnableJpaRepositories
+@Repository
+public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
 
-
+    List<Appointment> findByAppointmentType(String type);
 
 }
