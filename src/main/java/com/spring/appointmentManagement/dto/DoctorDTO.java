@@ -1,10 +1,20 @@
 package com.spring.appointmentManagement.dto;
 
-public class DoctorDTO {
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Length;
 
+public class DoctorDTO {
     private long doctorId;
+    @NotBlank(message = "The doctor name is required.")
     private String doctorName;
+    @NotEmpty(message = "The email is required")
+    @Email
     private String doctorEmail;
+    @NotEmpty(message = "The doctor contact number is required.")
+    @Length(max = 10, min = 10, message = "Number should be 10 character")
     private String doctorContactNumber;
 
     public DoctorDTO() {

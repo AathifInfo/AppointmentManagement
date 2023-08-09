@@ -3,6 +3,7 @@ package com.spring.appointmentManagement.controller;
 import com.spring.appointmentManagement.dto.DoctorDTO;
 import com.spring.appointmentManagement.entity.Doctor;
 import com.spring.appointmentManagement.service.DoctorService;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class DoctorController {
     private DoctorService doctorService;
 
     @PostMapping("/create")
-    public ResponseEntity<DoctorDTO> createDoctor(@RequestBody DoctorDTO doctorDTO){
+    public ResponseEntity<DoctorDTO> createDoctor(@Valid @RequestBody DoctorDTO doctorDTO){
 //        logger.info("Created Doctor with ID: {}", doctorSaveDTO.getDoctorId());
         return doctorService.addDoctor(doctorDTO);
     }
@@ -40,7 +41,7 @@ public class DoctorController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Doctor> updateDoctor(@PathVariable("id") long id, @RequestBody DoctorDTO doctorDTO){
+    public ResponseEntity<Doctor> updateDoctor(@Valid @PathVariable("id") long id, @RequestBody DoctorDTO doctorDTO){
         return doctorService.updateDoctor(id, doctorDTO);
     }
 
