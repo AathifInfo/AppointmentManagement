@@ -2,6 +2,9 @@ package com.spring.appointmentManagement.entity;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "doctor_table")
@@ -13,12 +16,16 @@ public class Doctor {
     private long doctorId;
 
     @Column(name = "doctor_name")
+//    @NotBlank(message = "The doctor name is required.")
     private String doctorName;
 
     @Column(name = "doctor_email")
+//    @NotEmpty(message = "The email is required")
+//    @Email
     private String doctorEmail;
 
     @Column(name = "doctor_contact")
+//    @NotEmpty(message = "The doctor contact number is required.")
     private String doctorContactNumber;
 
     public Doctor() {
