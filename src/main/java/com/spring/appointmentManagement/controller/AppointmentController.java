@@ -45,7 +45,7 @@ public class AppointmentController {
         return appointmentService.updateAppointment(id, appointmentDTO);
     }
 
-
+    
     @DeleteMapping(path = "/delete/{id}")
     public ResponseEntity<HttpStatus> deleteAppointmentById(@PathVariable("id") long id){
         return appointmentService.deleteAppointmentById(id);

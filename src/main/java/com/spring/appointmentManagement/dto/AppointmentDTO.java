@@ -10,12 +10,12 @@ public class AppointmentDTO {
 
     private long appointmentID;
     @NotBlank(message = "The appointment type is required")
-    @Size(min = 3, max = 20, message = "The appointment type must be from 3 to 20 characters")
+    @Size(min = 3, max = 40, message = "The appointment type must be from 3 to 20 characters")
     private String appointmentType;
 
-    @NotNull(message = "The date is required")
+//    @NotNull(message = "The date is required")
     @Future(message = "Appointment date must be in the future")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
     @NotNull(message = "The amount is required")
